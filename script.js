@@ -5,6 +5,12 @@ $('#search-field').on('submit', function(e){
 function handleSearch(data){
 	let output = data.results;
 	console.log(output);
+	for (let i = 0; i < output.length; i++) {
+		$('.results-container').append('<img src="https://image.tmdb.org/t/p/w200_and_h300_bestv2/' + output[i].poster_path + '">');
+		$('.results-container').append(output[i].name + "<br>");
+	}
+
+
 }
 
 function initialSearch(){
