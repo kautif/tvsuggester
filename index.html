@@ -6,10 +6,14 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
-	<form>
-		<input type="search" placeholder="Enter your favorite show">
-		<input type="submit" value="SUBMIT">
+	<form id="search-field" onsubmit="return initialSearch()">
+		<input id="query" type="search" placeholder="Enter your favorite show">
+		<button type="submit" value="SUBMIT">SUBMIT</button>
 	</form>
+
+	<div class="results-container">
+
+	</div>
 
 <script type="text/javascript" src="script.js"></script>
 </body>
