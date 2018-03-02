@@ -1,0 +1,12 @@
+/*.result-item {
+	margin-right: 20px;
+}*/
+
+.results-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	width: 82%;
+	margin-left: auto;
+	margin-right: auto;
+}
