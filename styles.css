@@ -2,6 +2,10 @@
 	margin-right: 20px;
 }*/
 
+.container {
+	z-index: 0;
+}
+
 .results-container {
 	display: flex;
 	flex-wrap: wrap;
@@ -13,4 +17,18 @@
 
 .hideID {
 	display: none;
+}
+
+.rec-item {
+	z-index: 1
+}
+
+.rec-details {
+	position: fixed;
+	top: 0;
+	left: 12%;
+	width: 75%;
+	height: 100%;
+	background-color: rgba(0,0,0, 0.8);
+	z-index: 2;
 }
