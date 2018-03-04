@@ -35,13 +35,11 @@ function handleRec(data){
 		}	
 
 		$('.rec-item').click(function(){
-			$('.results-container').append('<div class="rec-details">f</div>');
-			alert('rec-item');
-		})
-
-		$('.container').click(function(e){
-			// $('.rec-details').remove();
-			// alert('container');
+			$('.results-container').append('<div class="rec-details"><span class="close">X</span></div>');
+			// alert('rec-item');
+			$('.close').click(function(){
+			$('.rec-details').remove();
+			})
 		})
 }
 
