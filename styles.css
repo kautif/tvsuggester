@@ -59,3 +59,21 @@
 	color: white;
 	width: 50%;
 }
+
+.preview {
+	display: flex;
+}
+
+.trailer,
+.review {
+	text-align: center;
+}
+
+.trailer img,
+.review img {
+	width: 100%;
+}
+
+.trailer {
+	margin-right: 40px;
+}

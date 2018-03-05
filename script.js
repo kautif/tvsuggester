@@ -20,13 +20,17 @@ function handleSearch(data){
 		// Need to have a way to access total results before adding a link in order to not display image 
 		// that don't have recommendations
 	}
+
+	// Remove results that don't have any recommendations
+
 	$('.result-item img').click(recommendations);
-	// console.log(getURLs);
 }
+
+
 
 function handleRec(data){
 	let rec_output = data.results;
-	console.log(rec_output);
+	console.log(data);
 		$('.results-container').html('');
 // PLAN: When a user clicks on a link, return the recommendations of what they clicked on.
 		for (let j = 0; j < rec_output.length; j++) {
@@ -36,6 +40,45 @@ function handleRec(data){
 
 		$('.rec-item').click(function(){
 			let recItemID = $(this).attr('id');
+			function trailer(){
+			  // Get form user input
+			  trailerQuery = rec_output[recItemID].name + ' trailer';
+			  // Run GET request
+			  $.get(
+			      "https://www.googleapis.com/youtube/v3/search", {
+			        part: 'snippet',
+			        q: trailerQuery,
+			        type: 'video',
+			        key: 'AIzaSyDemNg8jB3WCPzum-5Da7D5wrA7jgaNGAs'},
+			      handleTrailer  
+			    );
+			}
+
+			 function handleTrailer (vid) {
+			    let YTObject = vid.items;
+			    $('.trailer').append(`<a target="_blank" href="https://www.youtube.com/watch?v=${YTObject[0].id.videoId}"><img src="${YTObject[0].snippet.thumbnails.medium.url}"></a>`);
+			    // console.log(YTObject);
+			    }
+
+			    function review(){
+			  // Get form user input
+			  reviewQuery = rec_output[recItemID].name + ' reviews';
+			  // Run GET request
+			  $.get(
+			      "https://www.googleapis.com/youtube/v3/search", {
+			        part: 'snippet',
+			        q: reviewQuery,
+			        type: 'video',
+			        key: 'AIzaSyDemNg8jB3WCPzum-5Da7D5wrA7jgaNGAs'},
+			      reviewTrailer  
+			    );
+			}
+
+			 function reviewTrailer (vid) {
+			    let YTReviewObject = vid.items;
+			    $('.review').append(`<a target="_blank" href="https://www.youtube.com/watch?v=${YTReviewObject[0].id.videoId}"><img src="${YTReviewObject[0].snippet.thumbnails.medium.url}"></a>`);
+			    console.log(YTReviewObject);
+			    }
 			$('.results-container').append(`<div class="rec-details">
 				<span class="close">X</span>
 				<h1 class="rec-head">${rec_output[recItemID].name}</h1>
@@ -46,10 +89,21 @@ function handleRec(data){
 						</div>
 						<div class="overview">
 							<h2>Overview:</h2> <p>${rec_output[recItemID].overview}</p>
+							<div class="preview">
+								<div class="trailer">
+									<h2>Trailer</h2>
+								</div>
+								<div class="review">
+									<h2>Reviews</h2>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>`);
+			trailer();
+			review();
 			// alert('rec-item');
+			console.log($('.rec-head').val());
 			$('.close').click(function(){
 			$('.rec-details').remove();
 			})
