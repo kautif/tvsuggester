@@ -6,7 +6,6 @@ function handleSearch(data){
 	let output = data.results;
 	// console.log(output);
 	$('.results-container').html('');
-	let getURLs = [];
 	for (let i = 0; i < output.length; i++) {
 		$('.results-container').append('<div class="result-item"' + 'name="' + output[i].name + '"' + '>' + output[i].name + "<br>" + 
 			// '<a ' + 'href="https://api.themoviedb.org/3/tv/' + output[i].id + '/recommendations?api_key=08eba60ea81f9e9cf342c7fa3df07bb6&language=en-US">' + 
@@ -22,6 +21,31 @@ function handleSearch(data){
 	}
 
 	// Remove results that don't have any recommendations
+	// let showIDArr = [];
+	for (let k = 0; k < output.length; k++) {
+		// showIDArr.push(output[k].id);
+		function emptyRecs(){
+		$.get(
+			'https://api.themoviedb.org/3/tv/'+ output[k].id + '/recommendations',
+			{
+				api_key: '08eba60ea81f9e9cf342c7fa3df07bb6',
+			},
+			handleNullRecs
+			)
+		}
+
+		
+
+		function handleNullRecs(e){
+			let imgID = "#" + output[k].id;
+			if (e.results.length === 0) {
+				$(imgID).parent().remove();
+			}
+			// console.log(imgID);
+		}
+		emptyRecs();
+	}
+	// console.log(showIDArr);
 
 	$('.result-item img').click(recommendations);
 }
