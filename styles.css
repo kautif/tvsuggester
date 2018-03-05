@@ -35,4 +35,27 @@
 
 .close {
 	color: white;
+	position: absolute;
+	top: 3%;
+	right: 2%;
+	font-size: 2em;
+}
+
+.rec-head {
+	color: white;
+	text-align: center;
+}
+
+.rec-content {
+	display: flex;
+	justify-content: space-around;
+}
+
+.rating {
+	color: white;
+}
+
+.overview {
+	color: white;
+	width: 50%;
 }

@@ -30,12 +30,25 @@ function handleRec(data){
 		$('.results-container').html('');
 // PLAN: When a user clicks on a link, return the recommendations of what they clicked on.
 		for (let j = 0; j < rec_output.length; j++) {
-			$('.results-container').append('<div class="rec-item">' + rec_output[j].name + "<br>" + 
+			$('.results-container').append('<div id="' + j + '"' +  'class="rec-item">' + rec_output[j].name + "<br>" + 
 				'<img src="https://image.tmdb.org/t/p/w200_and_h300_bestv2/' + rec_output[j].poster_path + '"></div>'); 
 		}	
 
 		$('.rec-item').click(function(){
-			$('.results-container').append('<div class="rec-details"><span class="close">X</span></div>');
+			let recItemID = $(this).attr('id');
+			$('.results-container').append(`<div class="rec-details">
+				<span class="close">X</span>
+				<h1 class="rec-head">${rec_output[recItemID].name}</h1>
+					<div class="rec-content">
+						<div class="rec-intro">
+						<h2 class="rating">Rating: ${rec_output[recItemID].vote_average * 10}%</h2>
+						<img src="https://image.tmdb.org/t/p/w200_and_h300_bestv2/${rec_output[recItemID].poster_path}">
+						</div>
+						<div class="overview">
+							<h2>Overview:</h2> <p>${rec_output[recItemID].overview}</p>
+						</div>
+					</div>
+				</div>`);
 			// alert('rec-item');
 			$('.close').click(function(){
 			$('.rec-details').remove();
