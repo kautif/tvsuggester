@@ -6,24 +6,26 @@ function handleSearch(data){
 	let output = data.results;
 	// console.log(output);
 	$('.results-container').html('');
+	$('#search-field').css('margin-top', '0%').css('transition', '1500ms');
+	$('body').append(`<div class="notify"><h2>Please select which show you were looking for</h2><p class="okay"><strong>OK</strong></p></div>`);
+	$('.okay').click(function(){
+		$('.notify').css('opacity', '0').css('transition', '1.5s').css('z-index', '-1');
+	})
 	for (let i = 0; i < output.length; i++) {
-		$('.results-container').append('<div class="result-item"' + 'name="' + output[i].name + '"' + '>' + output[i].name + "<br>" + 
+		let resultName = output[i].name;
+		if (output[i].name.length > 25) {
+				resultName = output[i].name.substring(0, 25) + '...';
+		}
+		$('.results-container').append('<div class="result-item"' + 'name="' + output[i].name + '"' + '>' + '<p class="result-title">' + resultName + '</p>' + "<br>" + 
 			// '<a ' + 'href="https://api.themoviedb.org/3/tv/' + output[i].id + '/recommendations?api_key=08eba60ea81f9e9cf342c7fa3df07bb6&language=en-US">' + 
 			'<img id="' + output[i].id + '" src="https://image.tmdb.org/t/p/w200_and_h300_bestv2/' + output[i].poster_path + '">' + '</div>');
-		
+		// console.log(output[i].name.length);
 	// if the image equals null, do not display it. 
 	// if the title does not have the search query in the name of the result, do not display it.
 	// if title exceeds a certain number of characters, cut the title off. It messes with styling.
-	// if total results of recommendations for a title is zero, do not display it. OR
-		// Display an error message saying that recommendations could not be found.
-		// Need to have a way to access total results before adding a link in order to not display image 
-		// that don't have recommendations
 	}
-
 	// Remove results that don't have any recommendations
-	// let showIDArr = [];
 	for (let k = 0; k < output.length; k++) {
-		// showIDArr.push(output[k].id);
 		function emptyRecs(){
 		$.get(
 			'https://api.themoviedb.org/3/tv/'+ output[k].id + '/recommendations',
@@ -56,9 +58,17 @@ function handleRec(data){
 	let rec_output = data.results;
 	console.log(data);
 		$('.results-container').html('');
+		$('body').append(`<div class="notify suggest"><h2>Here are some show suggestions</h2><p class="okay"><strong>OK</strong></p></div>`);
+		$('.okay').click(function(){
+			$('.notify').css('opacity', '0').css('transition', '1.5s').css('z-index', '-1');
+		})
 // PLAN: When a user clicks on a link, return the recommendations of what they clicked on.
 		for (let j = 0; j < rec_output.length; j++) {
-			$('.results-container').append('<div id="' + j + '"' +  'class="rec-item">' + rec_output[j].name + "<br>" + 
+			let recName = rec_output[j].name;
+			if (rec_output[j].name.length > 25) {
+				recName = rec_output[j].name.substring(0,25) + '...';
+			}
+			$('.results-container').append('<div id="' + j + '"' +  'class="rec-item">' + '<p class="result-title">' + recName + '</p>' + "<br>" + 
 				'<img src="https://image.tmdb.org/t/p/w200_and_h300_bestv2/' + rec_output[j].poster_path + '"></div>'); 
 		}	
 
@@ -103,8 +113,12 @@ function handleRec(data){
 			    $('.review').append(`<a target="_blank" href="https://www.youtube.com/watch?v=${YTReviewObject[0].id.videoId}"><img src="${YTReviewObject[0].snippet.thumbnails.medium.url}"></a>`);
 			    console.log(YTReviewObject);
 			    }
+			    let description = rec_output[recItemID].overview;
+			    if (description.length > 815) {
+			    		description = rec_output[recItemID].overview.substring(0,815) + '...';
+			    }
 			$('.results-container').append(`<div class="rec-details">
-				<span class="close">X</span>
+				<span class="close">&times;</span>
 				<h1 class="rec-head">${rec_output[recItemID].name}</h1>
 					<div class="rec-content">
 						<div class="rec-intro">
@@ -112,7 +126,7 @@ function handleRec(data){
 						<img src="https://image.tmdb.org/t/p/w200_and_h300_bestv2/${rec_output[recItemID].poster_path}">
 						</div>
 						<div class="overview">
-							<h2>Overview:</h2> <p>${rec_output[recItemID].overview}</p>
+							<h2>Overview</h2> <p>${description}</p>
 							<div class="preview">
 								<div class="trailer">
 									<h2>Trailer</h2>
