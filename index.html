@@ -1,18 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>TV Suggester</title>
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<link href="https://fonts.googleapis.com/css?family=Allan:700|Bangers" rel="stylesheet">
 </head>
 <body>
-	<form id="search-field" onsubmit="return initialSearch()">
-		<input id="query" type="search" placeholder="Enter your favorite show">
-		<button type="submit" value="SUBMIT">SUBMIT</button>
-	</form>
+	<h1 class="main-head" aria-live="polite">Let's Help You Find a New Show</h1>
 
-	<div class="results-container">
+	<label role="main" name="New Show Search">
+		<form id="search-field" onsubmit="return initialSearch()">
+			<input required aria-live="polite" id="query" type="search" placeholder="Name one of your favorite shows">
+			<button type="submit" value="SUBMIT">SUBMIT</button>
+		</form>
+	</label>
+
+	<div class="results-container" aria-live="polite">
 
 	</div>
 

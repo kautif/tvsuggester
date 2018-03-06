@@ -13,15 +13,16 @@ button {
 	font-family: 'Bangers';
 }
 
-.container {
-	z-index: 0;
+.main-head {
+	text-align: center;
+	margin-top: 15%;
 }
 
 #search-field {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	margin-top: 20%;
+	margin-top: 2%;
 }
 
 #query {
@@ -30,14 +31,17 @@ button {
 	text-align: center;
 	border-radius: 8px;
 	border: 2px solid lightgray;
+	font-size: 1.2em;
 }
 
 #search-field button {
 	width: 15%;
 	padding: 15px;
-	margin-top: 10px;
+	margin-top: 2%;
 	border-radius: 5px;
 	border: 1px solid black;
+	font-size: 1.2em;
+	cursor: pointer;
 }
 
 .notify {
@@ -51,7 +55,7 @@ button {
 	border: 2px solid black;
 }
 
-.notify p {
+.okay {
 	background-color: rgba(255, 112, 112, 0.7);
 	width: 20%;
 	text-align: center;
@@ -59,6 +63,10 @@ button {
 	border-radius: 8px;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+.notify h3 {
+	text-align: center;
 }
 
 .suggest {
@@ -140,6 +148,7 @@ button {
 .overview p {
 	text-align: left;
 	letter-spacing: 1px;
+	font-size: 1.2em;
 }
 
 .preview {
@@ -158,4 +167,92 @@ button {
 
 .trailer {
 	margin-right: 40px;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+	.main-head {
+		margin-top: 62%;
+		font-size: 1.5em;
+	}
+
+	#query {
+		width: 80%;
+		height: 53px;
+		text-align: center;
+		font-size: 1.2em;
+	}
+
+	#search-field button {
+		width: 30%;
+		padding: 15px;
+		font-size: 1.2em;
+	}
+
+	.notify {
+		left: 0%;
+		padding: 10px;
+		text-align: center;
+	}
+
+	.okay {
+		width: 30%;
+		padding: 15px;
+		font-size: 1.5em;
+	}
+
+	.suggest {
+		left: 6.5%;
+	}
+
+	.result-title {
+		font-size: 1.2em;
+	}
+
+	.rec-head {
+		font-size: 1.5em;
+	}
+
+	.overview h2,
+	.rating {
+		font-size: 1.25em;
+	}
+
+	.rec-intro img {
+		width: 90%;
+	}
+
+	.overview {
+		width: 70%;
+	}
+
+	.overview p {
+		font-size: 0.7em;
+	}
+
+	.trailer {
+		margin-right: 10px;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+	.main-head {
+		margin-top: 25%;
+	}
+
+	.notify {
+		left: 25%;
+	}
+
+	.suggest {
+		left: 31%;
+	}
+
+	.overview {
+		width: 63%;
+	}
+
+	.overview p {
+		font-size: 1em;
+	}
+
 }
