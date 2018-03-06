@@ -2,6 +2,8 @@ $('#search-field').on('submit', function(e){
 	e.preventDefault();
 });
 
+// Removes notification box on click
+
 const notification = function () {
 	$('.okay').click(function(){
 			$('.notify').css('opacity', '0').css('transition', '1.5s').css('z-index', '-1');
@@ -10,6 +12,8 @@ const notification = function () {
 		$('.notify').css('opacity', '0').css('transition', '1.5s').css('z-index', '-1');
 	})
 }
+
+// Return initial search results
 
 function handleSearch(data){
 	let output = data.results;
@@ -33,6 +37,8 @@ function handleSearch(data){
 			 <p class="result-title">${resultName}</p><br>  
 			<img id="${output[i].id}" alt="${resultName} image" src="https://image.tmdb.org/t/p/w200_and_h300_bestv2/${output[i].poster_path}"></div>`);
 	}
+
+	// Removes initial search results that don't have recommendations
 	for (let k = 0; k < output.length; k++) {
 		function emptyRecs(){
 		$.get(
@@ -56,7 +62,7 @@ function handleSearch(data){
 }
 	}
 	
-
+// Return recommendation results
 function handleRec(data){
 	let rec_output = data.results;
 	$('.results-container').html('');
@@ -75,6 +81,9 @@ function handleRec(data){
 	}	
 	$('.rec-item').click(function(){
 		let recItemID = $(this).attr('id');
+		
+		// Trailer videos
+
 		function trailer(){
 		  trailerQuery = rec_output[recItemID].name + ' trailer';
 		  $.get(
@@ -91,6 +100,8 @@ function handleRec(data){
 		    $('.trailer').append(`<a target="_blank" href="https://www.youtube.com/watch?v=${YTObject[0].id.videoId}">
 		    	<img alt="${rec_output[recItemID].name} trailer video link" src="${YTObject[0].snippet.thumbnails.medium.url}"></a>`);
 		    }
+
+		    // Review videos
 
 		    function review(){
 		  reviewQuery = rec_output[recItemID].name + ' reviews';
