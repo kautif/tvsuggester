@@ -1,4 +1,4 @@
-# tvsuggester
+# tvSuggester
 <h2>Purpose</h2>
 <p>The purpose of this application is to suggest new TV shows for users to watch based on the name that they submit. 
 The manner of these suggestions includes names of the shows, a synopsis of them, and links to trailer, and review videos.</p>
