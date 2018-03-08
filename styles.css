@@ -171,71 +171,7 @@ button {
 	margin-right: 40px;
 }
 
-@media (max-width: 319px) {
-	.main-head {
-		margin-top: 63%;
-	}
-
-	#query {
-		width: 75%;
-	}
-
-	#search-field button {
-		width: 35%;
-		margin-top: 20px;
-	}
-
-	.result-item,
-	.rec-item {
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-	.notify {
-		left: 0%;
-		text-align: center;
-	}
-
-	.okay {
-		font-size: 1.5em;
-	}
-
-	.suggest {
-		left: 0%;
-	}
-
-	.close {
-		top: -2%;
-	}
-
-	.rec-content {
-		flex-direction: column;
-	}
-
-	.rec-intro {
-		display: flex;
-		flex-direction: row-reverse;
-		align-items: center;
-	}
-
-	.rating-num {
-		font-size: 1.5em;
-	}
-
-	.overview {
-		width: 100%;
-	}
-
-	.preview {
-		flex-direction: column;
-	}
-
-	.trailer {
-		margin-right: 0px;
-	}
-}
-
-@media (min-width: 320px) and (max-width: 767px) {
+@media (min-width: 320px) and (max-width: 767px) and (min-aspect-ratio: 13/9) {
 	.main-head {
 		margin-top: 62%;
 		font-size: 1.5em;
