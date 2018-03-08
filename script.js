@@ -25,7 +25,7 @@ function handleSearch(data){
 		notification();
 	} else {
 		$('.results-container').html('');
-	$('.main-head').css('margin-top', '0%').css('opacity', '0').css('z-index', '-3').css('transition', '1500ms');
+	$('.main-head').css('margin', '0%').css('opacity', '0').css('z-index', '-3').css('transition', '1500ms');
 	$('#search-field').css('margin-top', '-4%').css('transition', '1500ms');
 	$('body').append(`<div class="notify"><h2>Please select which show you were looking for</h2><p class="okay"><strong>OK</strong></p></div>`);
 	notification();
