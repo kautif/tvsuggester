@@ -171,7 +171,7 @@ button {
 	margin-right: 40px;
 }
 
-@media (max-width: 319px) and (orientation: portrait) {
+@media (max-width: 319px) {
 	.main-head {
 		margin-top: 63%;
 	}
@@ -235,7 +235,7 @@ button {
 	}
 }
 
-@media (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
+@media (min-width: 320px) and (max-width: 767px) {
 	.main-head {
 		margin-top: 62%;
 		font-size: 1.5em;
