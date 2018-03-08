@@ -4,13 +4,13 @@ body {
 
 h1,
 h2 {
-	font-family: 'Allan';
+	font-family: 'Arvo';
 }
 
 p,
 input,
 button {
-	font-family: 'Bangers';
+	font-family: 'Rozha One';
 }
 
 .main-head {
@@ -105,6 +105,7 @@ button {
 	height: 100%;
 	background-color: rgba(0,0,0, 0.9);
 	z-index: 2;
+	overflow: scroll;
 }
 
 .close {
@@ -153,6 +154,7 @@ button {
 
 .preview {
 	display: flex;
+	margin-bottom: 20px;
 }
 
 .trailer,
@@ -169,7 +171,7 @@ button {
 	margin-right: 40px;
 }
 
-@media (min-width: 320px) and (max-width: 767px) {
+@media (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
 	.main-head {
 		margin-top: 62%;
 		font-size: 1.5em;
@@ -204,17 +206,50 @@ button {
 		left: 6.5%;
 	}
 
+	.rec-item,
+	.result-item {
+		margin-left: auto;
+		margin-right: auto;
+	}
+
 	.result-title {
 		font-size: 1.2em;
 	}
 
+	.close {
+		top: -2%;
+	}
+
+	.rec-details {
+		height: 100vh;
+		box-sizing: border-box;
+		padding: 0px 10px;
+		overflow: scroll;
+	}
+
+	.rec-content {
+		flex-direction: column;
+	}
+
+	.rec-intro {
+		display: flex;
+		flex-direction: row-reverse;
+		justify-content: space-around;
+		align-items: center;
+	}
+
 	.rec-head {
-		font-size: 1.5em;
+		font-size: 2em;
+		padding-top: 10px;
 	}
 
 	.overview h2,
 	.rating {
-		font-size: 1.25em;
+		font-size: 1.5em;
+	}
+
+	.rating-num {
+		font-size: 2em;
 	}
 
 	.rec-intro img {
@@ -222,11 +257,15 @@ button {
 	}
 
 	.overview {
-		width: 70%;
+		width: 100%;
 	}
 
 	.overview p {
-		font-size: 0.7em;
+		font-size: 1em;
+	}
+
+	.preview {
+		flex-direction: column;
 	}
 
 	.trailer {

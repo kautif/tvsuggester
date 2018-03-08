@@ -1,5 +1,6 @@
 $('#search-field').on('submit', function(e){
 	e.preventDefault();
+	$('.notify').remove();
 });
 
 // Removes notification box on click
@@ -30,8 +31,8 @@ function handleSearch(data){
 	notification();
 	for (let i = 0; i < output.length; i++) {
 		let resultName = output[i].name;
-		if (output[i].name.length > 25) {
-				resultName = output[i].name.substring(0, 25) + '...';
+		if (output[i].name.length > 15) {
+				resultName = output[i].name.substring(0, 15) + '...';
 		}
 		$('.results-container').append(`<div class="result-item" name="${output[i].name}"> 
 			 <p class="result-title">${resultName}</p><br>  
@@ -72,8 +73,8 @@ function handleRec(data){
 	notification();
 	for (let j = 0; j < rec_output.length; j++) {
 		let recName = rec_output[j].name;
-		if (rec_output[j].name.length > 25) {
-			recName = rec_output[j].name.substring(0,25) + '...';
+		if (rec_output[j].name.length > 15) {
+			recName = rec_output[j].name.substring(0,15) + '...';
 		}
 		$('.results-container').append(`<div id="${j}" class="rec-item">
 			<p class="result-title">${recName}</p><br>
@@ -129,7 +130,7 @@ function handleRec(data){
 			<h1 class="rec-head">${rec_output[recItemID].name}</h1>
 				<div class="rec-content">
 					<div class="rec-intro">
-					<h2 class="rating">Rating: ${rec_output[recItemID].vote_average * 10}%</h2>
+					<h2 class="rating"><span>Rating:</span> <span class="rating-num">${rec_output[recItemID].vote_average * 10}%</span></h2>
 					<img src="https://image.tmdb.org/t/p/w200_and_h300_bestv2/${rec_output[recItemID].poster_path}">
 					</div>
 					<div class="overview">
