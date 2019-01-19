@@ -112,11 +112,11 @@ function handleRec(data){
 		        q: reviewQuery,
 		        type: 'video',
 		        key: 'AIzaSyDemNg8jB3WCPzum-5Da7D5wrA7jgaNGAs'},
-		      reviewTrailer  
+		      reviewVid  
 		    );
 		}
 
-		 function reviewTrailer (vid) {
+		 function reviewVid (vid) {
 		    let YTReviewObject = vid.items;
 		    $('.review').append(`<a target="_blank" href="https://www.youtube.com/watch?v=${YTReviewObject[0].id.videoId}">
 		    	<img alt="${rec_output[recItemID].name} review video link" src="${YTReviewObject[0].snippet.thumbnails.medium.url}"></a>`);
