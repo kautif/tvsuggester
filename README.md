@@ -34,7 +34,7 @@ The manner of these suggestions includes names of the shows, a synopsis of them,
 <p>After clicking on an image for a show image, receive more details</p>
 <img src="https://lh3.googleusercontent.com/-y2Gb44_dKeY/Wp8Pe35KZII/AAAAAAAAGNM/YDlYcbkHh88BuSo7x06WV4waSSCwIKMAQCL0BGAYYCw/h768/2018-03-06.png">
 
-<h2><a target="_blank" href="kautif.github.io/tvsuggester">Live Demo</a></h2>
+<h2><a target="_blank" href="https://www.kautif.com/tvsuggester/">Live Demo</a></h2>
 
 <h2>Author</h2>
 <p>Autif Kamal</p>
