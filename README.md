@@ -19,15 +19,19 @@ The manner of these suggestions includes names of the shows, a synopsis of them,
 
 <h2>Screenshots</h2>
 <h3>Main Page</h3>
+<p>Type in the name of a show you like</p>
 <img src="https://lh3.googleusercontent.com/-32MiotcCYQw/Wp8N3hviiZI/AAAAAAAAGM0/ti2ofn8aGxUd_oAc09F0A8vbR1VsZweLQCL0BGAYYCw/h768/2018-03-06.png">
 
 <h3>Confirm Desired Show Selection</h3>
+<p>Clarify which show you were referring to</p>
 <img src="https://lh3.googleusercontent.com/-azGHInGZDVM/Wp8OdubFB5I/AAAAAAAAGM8/61Uw-NhWXnYIyh4RlwTcZBTMkIuBYXmeACL0BGAYYCw/h768/2018-03-06.png">
 
 <h3>Recommended Shows</h3>
+<p>See the shows that are recommended you watch based on the show you said you like</p>
 <img src="https://lh3.googleusercontent.com/-h5hi6WIkl6A/Wp8Ou-Qs49I/AAAAAAAAGNA/cc4TM-l3gTcisxH6rmJHoNgsOdP88yzDgCL0BGAYYCw/h768/2018-03-06.png">
 
 <h3>Details of Recommended Show</h3>
+<p>After clicking on an image for a show image, receive more details</p>
 <img src="https://lh3.googleusercontent.com/-y2Gb44_dKeY/Wp8Pe35KZII/AAAAAAAAGNM/YDlYcbkHh88BuSo7x06WV4waSSCwIKMAQCL0BGAYYCw/h768/2018-03-06.png">
 
 <h2><a target="_blank" href="kautif.github.io/tvsuggester">Live Demo</a></h2>
